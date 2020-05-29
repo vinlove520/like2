@@ -12,8 +12,8 @@ import kotlinx.android.synthetic.main.activity_main.view.*
 
 class Activity_B: AppCompatActivity() {
 
-val list2 = mutableListOf<Int>()
-    var page_position = 1
+var list2 = mutableListOf<item>()
+    var catname = ""
     var i = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +28,8 @@ val list2 = mutableListOf<Int>()
                 it.readText()
             }
         var newUser = Gson().fromJson(jsonFile, array::class.java)
-
-        var catname = intent?.getStringExtra("num").toString()
         var list = intent?.getStringExtra("num1").toString()
+        catname = intent?.getStringExtra("num").toString()
 
         //get所傳遞的參數將其放置要顯示的圖片
         imageView2.setImageResource(list.toInt())
@@ -41,6 +40,23 @@ val list2 = mutableListOf<Int>()
 
         rvRecyclerView.layoutManager = GridLayoutManager(this,3)
         //rvRecyclerView.layoutManager = LinearLayoutManager(this)
+
+        when (catname) {
+            "1" -> {
+                list2 = ItemList2
+
+            }
+            "2" -> {
+                list2 = ItemList3
+
+            }
+
+            else -> {
+                list2 = ItemList
+
+            }
+
+        }
         rvRecyclerView.adapter = MyAdapter(this,list2 )
         //rvRecyclerView.itemAnimator
 

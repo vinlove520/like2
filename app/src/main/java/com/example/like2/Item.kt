@@ -2,7 +2,7 @@ package com.example.like2
 
 data class item(
 
-    val image : Any)
+    var image : Any)
 
 val isLandscape: Boolean = true
 
@@ -19,7 +19,8 @@ val ItemList = mutableListOf(
         ) ,
         item(
             R.drawable.buti_3
-        ) ,
+        ) )
+val ItemList2 = mutableListOf(
         item(
             R.drawable.buti_4
         ) ,
@@ -28,7 +29,8 @@ val ItemList = mutableListOf(
         ) ,
         item(
             R.drawable.buti_6
-        ) ,
+        ) )
+val ItemList3= mutableListOf(
         item(
             R.drawable.buti_7
         ) ,
@@ -40,9 +42,4 @@ val ItemList = mutableListOf(
         ),
         item(
             "https://www.xiaoxiaohuajia.com/uploads/allimg/191127/1_191127153251_4.jpg"
-        )
-
-
-
-
-)
+        ) )

@@ -27,10 +27,23 @@ class Activity_data : AppCompatActivity() {
         }
         var newUser3 = Gson().fromJson(jsonFile, array::class.java)
         val image3 = this.findViewById<ImageView>(R.id.imageView)
-        var ItemListimage = intent.getIntExtra("ItemListimage",1)
+        var ItemListimage = intent.getIntExtra("list2image",1)
+        var catname = intent?.getStringExtra("catname")
+        when(catname) {
+            "0" -> {
+                Glide.with(this).load(ItemList[ItemListimage].image).into(image3)
+            }
+            "1" -> {
+                Glide.with(this).load(ItemList2[ItemListimage].image).into(image3)
+            }
+            "2" -> {
+                Glide.with(this).load(ItemList3[ItemListimage].image).into(image3)
+            }
+        }
+        if (catname != null) {
+            textView4.text =
+                "\n\t資料關鍵字=${newUser3.Array[catname.toInt()].url[ItemListimage].IDname}"
+        }
 
-        Glide.with(this).load(ItemList[ItemListimage].image).into(image3)
-        textView4.text =
-            "\n\t資料關鍵字=${newUser3.Array[0].url[ItemListimage].IDname}"
     }
 }
