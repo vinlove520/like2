@@ -44,6 +44,5 @@ class Activity_data : AppCompatActivity() {
             textView4.text =
                 "\n\t資料關鍵字=${newUser3.Array[catname.toInt()].url[ItemListimage].IDname}"
         }
-
     }
 }
